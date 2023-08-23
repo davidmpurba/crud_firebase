@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Text(
-            'Logins',
+            'Login',
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
           Column(
