@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:crud_provider/providers/operation_provider.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class UpdateEmployeePage extends StatelessWidget {
@@ -38,7 +39,12 @@ class UpdateEmployeePage extends StatelessWidget {
             const SizedBox(height: 20),
             TextField(controller: emailController),
             const SizedBox(height: 20),
-            TextField(controller: phoneController),
+            TextField(
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+                keyboardType: TextInputType.number,
+                controller: phoneController),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {

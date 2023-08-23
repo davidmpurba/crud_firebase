@@ -1,5 +1,6 @@
 import 'package:crud_provider/providers/operation_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 
@@ -47,7 +48,7 @@ class AddEmployeePageState extends State<AddEmployeePage> {
                 controller: _emailController,
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value!.isEmpty) {
+                  if (value!.isEmpty && !value.contains('@')) {
                     return 'Please enter an email';
                   }
                   return null;
@@ -55,7 +56,11 @@ class AddEmployeePageState extends State<AddEmployeePage> {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
                 controller: _phoneController,
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(labelText: 'Phone'),
                 validator: (value) {
                   if (value!.isEmpty) {
