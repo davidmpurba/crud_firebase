@@ -59,7 +59,6 @@ class LoginPage extends StatelessWidget {
                     emailController.text,
                     passwordController.text,
                   );
-                  Navigator.pushNamed(context, '/home');
                 },
                 child: const Text(
                   'Sign in',
